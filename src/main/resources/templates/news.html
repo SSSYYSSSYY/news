@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>閱覽並發布新聞</title>
+</head>
+<body style="background-color: rgb(216, 226, 232);padding: 2rem;">
+	<h1 style="color: rgb(26, 65, 131);text-align: center;">最新消息網站</h1>
+	<ul style="display: block;margin:2rem auto;width: 50rem;max-height: 20rem;overflow-y: auto;">
+		<li style="display: flex;align-items: center;list-style: none;"
+		th:block th:each="item : ${newsList}">
+			<p style="color: gray; margin-right: 2rem;" th:text="${item.date}">default date</p>
+			<a style="width: 30rem;margin-right: 2rem;" th:href="@{/news/{id}(id=${item.id})}" th:text="${item.title}">default title</a>
+			<p th:text="${item.category}">default category</p>
+		</li>
+	</ul>
+	<a style="text-decoration: none;padding: .5rem 2rem;background-color: rgb(26, 65, 131); color: white;display: block;width: 6rem;margin: auto;text-align: center;border-radius: 10px;"
+	href="/add_news">新增新聞</a>
+</body>
+</html>

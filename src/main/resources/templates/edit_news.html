@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>編輯新聞</title>
+</head>
+<body style="background-color: rgb(216, 226, 232);padding: 2rem;">
+	<a style="text-decoration: none;padding: .5rem 2rem;background-color: rgb(26, 65, 131); color: white;display: block;width: 6rem;margin: auto;text-align: center;border-radius: 10px;"
+    href="/news">回首頁</a>
+    <h3 style="text-align: center;color: rgb(26, 65, 131);">編輯新聞 - <span th:text="${currentNews.title}"></span></h3>
+    <form style="display: block;margin: auto;width: 40rem;background-color: rgb(186, 207, 220);border-radius: 10px;padding: 2rem;margin: 2rem auto;"
+    th:action="@{/edit_news/{id}(id=${currentNews.id})}" method="post">
+        <label for="title">標題：</label>
+        <span th:text="${currentNews.title}"></span><br>
+        <label for="detail">內文：</label>
+        <textarea style="width: 40rem;height: 20rem;"
+        id="detail" name="detail" required th:text="${currentNews.detail}"></textarea><br>
+        <button style="text-decoration: none;padding: .5rem 2rem;background-color: rgb(26, 65, 131); color: white;display: block;width: 6rem;margin: auto;text-align: center;border-radius: 10px;"
+        type="submit">儲存</button>
+    </form>
+</body>
+</html>

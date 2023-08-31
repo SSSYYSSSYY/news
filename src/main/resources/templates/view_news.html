@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${currentNews.title}">新聞標題</title>
+</head>
+<body style="background-color: rgb(216, 226, 232);padding: 2rem;">
+	<a style="text-decoration: none;padding: .5rem 2rem;background-color: rgb(26, 65, 131); color: white;display: block;width: 6rem;margin: auto;text-align: center;border-radius: 10px;"
+    href="/news">回首頁</a>
+    <div style="display: block;margin: auto;width: 40rem;background-color: rgb(186, 207, 220);border-radius: 10px;padding: 2rem;margin: 2rem auto;">
+        <h1 style="color: rgb(26, 65, 131);"
+        th:text="${currentNews.title}">title</h1>
+        <p style="color: gray;" th:text="${currentNews.date}">date</p>
+        <span style="color: rgb(46, 92, 173);" th:text="${currentNews.category}">category</span>
+        <p th:text="${currentNews.detail}">detail</p>
+    </div>
+    
+    <a style="text-decoration: none;padding: .5rem 2rem;background-color: rgb(26, 65, 131); color: white;display: block;width: 6rem;margin: auto;text-align: center;border-radius: 10px;"
+    th:href="@{/edit_news/{id}(id=${currentNews.id})}">編輯</a>
+</body>
+</html>
